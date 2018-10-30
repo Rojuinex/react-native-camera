@@ -746,6 +746,11 @@ public class RCTCameraModule extends ReactContextBaseJavaModule
             environmentDirectoryType = Environment.DIRECTORY_PICTURES;
         } else if (type == MEDIA_TYPE_VIDEO) {
             environmentDirectoryType = Environment.DIRECTORY_MOVIES;
+
+            return getOutputFile(
+                type,
+                _reactContext.getFilesDir()
+            );
         } else {
             Log.e(TAG, "Unsupported media type:" + type);
             return null;
@@ -797,7 +802,7 @@ public class RCTCameraModule extends ReactContextBaseJavaModule
             if (type == MEDIA_TYPE_IMAGE) {
                 outputFile = File.createTempFile("IMG_" + timeStamp, ".jpg", outputDir);
             } else if (type == MEDIA_TYPE_VIDEO) {
-                outputFile = File.createTempFile("VID_" + timeStamp, ".mp4", outputDir);
+                outputFile = File.createTempFile("VID_" + timeStamp, ".mov", outputDir);
             } else {
                 Log.e(TAG, "Unsupported media type:" + type);
                 return null;

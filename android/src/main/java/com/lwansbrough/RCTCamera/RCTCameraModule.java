@@ -287,13 +287,13 @@ public class RCTCameraModule extends ReactContextBaseJavaModule
         // Adjust for orientation.
         // mMediaRecorder.setOrientationHint(RCTCamera.getInstance().getAdjustedDeviceOrientation());
         switch (deviceOrientation) {
-            case 0: mMediaRecorder.setOrientationHint(90);
+            case 0: mMediaRecorder.setOrientationHint(calcCameraRotation(90));
               break;
-            case 1: mMediaRecorder.setOrientationHint(0);
+            case 1: mMediaRecorder.setOrientationHint(calcCameraRotation(0));
               break;
-            case 2: mMediaRecorder.setOrientationHint(270);
+            case 2: mMediaRecorder.setOrientationHint(calcCameraRotation(270));
               break;
-            case 3: mMediaRecorder.setOrientationHint(180);
+            case 3: mMediaRecorder.setOrientationHint(calcCameraRotation(180));
               break;
           }
 
